@@ -16,6 +16,7 @@ public class CureAndDestroy : MonoBehaviour
 		gameManager = managerObject.GetComponent<GameManager>();
 	}
 
+    // void OnCollisionEnter(Collision other)
     private void OnTriggerEnter(Collider other)
     {
     	if(other.gameObject.tag == "Virus")

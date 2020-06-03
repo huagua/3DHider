@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5098519419376199285}
   - component: {fileID: 7562674679102649592}
   - component: {fileID: 2459298188617878876}
+  - component: {fileID: -2268501905163195589}
   m_Layer: 0
   m_Name: NormalPeople4
   m_TagString: NormalPeople
@@ -74,6 +75,22 @@ CapsuleCollider:
   m_Height: 4.023614
   m_Direction: 1
   m_Center: {x: 0, y: 2.02, z: 0}
+--- !u!54 &-2268501905163195589
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315361029893900867}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &3311270529415849814
 Animator:
   serializedVersion: 3

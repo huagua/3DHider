@@ -17,6 +17,16 @@ public class MoveForward : MonoBehaviour
     void FixedUpdate()
     {
     	// if(!gameManager.gameOver)
-    		transform.Translate(0, 0, speed*Time.deltaTime);
+    	transform.Translate(0, 0, speed*Time.deltaTime);
+    }
+
+    public void StartPlayer()
+    {
+    	speed = gameManager.WhichSpeed(gameObject.tag);
+    }
+
+    public void StopPlayer()
+    {
+    	speed = 0f;
     }
 }

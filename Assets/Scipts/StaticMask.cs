@@ -13,6 +13,7 @@ public class StaticMask : MonoBehaviour
     	// gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
+    // void OnCollisionEnter(Collision other)
     private void OnTriggerEnter(Collider other)
     {
     	if(other.gameObject.tag == "Player")

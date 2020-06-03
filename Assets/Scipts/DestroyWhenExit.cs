@@ -11,6 +11,7 @@ public class DestroyWhenExit : MonoBehaviour
 		gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
 	}
 
+    // void OnCollisionExit(Collision other)
     private void OnTriggerExit(Collider other)
     {
     	if(other.gameObject.tag == "Player")
