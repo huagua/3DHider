@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 9faa3702064c1f1478d895765ad71629, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6d3c1dd6e3c38a34ebb0343d96cdf21d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3363,6 +3363,7 @@ MonoBehaviour:
   mask: {fileID: 9018883779383658349, guid: d208b1899197f439986603bc895b9cd4, type: 3}
   firePos: {fileID: 590497920}
   gameManager: {fileID: 0}
+  numOfStaticMask: 0
   maskText: {fileID: 1049813238}
 --- !u!114 &1729440473
 MonoBehaviour:
