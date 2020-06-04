@@ -19,9 +19,12 @@ public class DestroySelf : MonoBehaviour
     {
     	if(player != null)
     	{
-    		if(transform.position.z + 10 < player.transform.position.z)
+            // 如果该物体的位置在玩家后面10米外，或者该物体的位置在玩家前面100米外，就自我销毁
+    		if(transform.position.z + 10 < player.transform.position.z || transform.position.z > player.transform.position.z + 100)
 	        {
 	        	Destroy(this.gameObject);
+
+                // 如果当前的物体是严重感染者，就调用gamemanager中的方法，产生一个新的严重感染者
                 if(this.gameObject.tag == "Infected")
                 {
                     gameManager.InfectedIncur();

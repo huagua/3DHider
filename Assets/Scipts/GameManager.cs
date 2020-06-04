@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    // 各种速度
 	private float playerSpeed = 5;
     private float virusSpeed = -10;
     private float maskSpeed = 10;
@@ -13,19 +14,19 @@ public class GameManager : MonoBehaviour
     private float varientPeopleSpeed = -7;
     private float infectedSpeed = -3;
     private float normalSpeed = 2;
-
 	private float increasingSpeed = 5;
+
+
 	private static int score = 0;
     public GameObject player;
     public GameObject infected;
-    public GameObject floor;
-    private GameObject floors;
     public GameObject staticMask;
 
     private float[] xposOfNormal = {-2.5f, 0f, 2.5f};
     public GameObject[] normalPeoples;
     private float normalWait = 2f;
 
+    // 各种UI组件，在unity面板中赋值
     public GameObject pausePanel;
     public GameObject newRecordPanel;
     public GameObject gameOverPanel;
@@ -35,8 +36,10 @@ public class GameManager : MonoBehaviour
     public Text newRecordScore;
     public Text finalScore;
 
+    // 游戏结束flag
     public bool gameOver;
 
+    // 以下四个函数均是button触发函数
     public void OnPauseGame()
     {
         Time.timeScale = 0;
@@ -67,8 +70,6 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         onGamePanel.SetActive(true);
-
-        floors = GameObject.FindWithTag("Floors");
 	}
 
     void Start()
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
     	if(score % 200 == 0)  playerSpeed += increasingSpeed;
     }
 
+    // 游戏结束方法
     public void GameOver()
     {
     	// Time.timeScale = 0;
@@ -95,6 +97,7 @@ public class GameManager : MonoBehaviour
         SaveData();
     }
 
+    // 游戏结束时需要保存数据，仅仅保存历史最高分即可
     private void SaveData()
     {
         int maxValue = PlayerPrefs.GetInt("maxScore");
@@ -109,6 +112,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 显示游戏结束面板
     public void NextPeriodGameOver()
     {
         newRecordPanel.SetActive(false);
@@ -163,14 +167,6 @@ public class GameManager : MonoBehaviour
 
             Instantiate(infected, pos, Quaternion.identity);
         }
-    }
-
-    // 固定出现floor
-    public void FloorIncur(Vector3 pos)
-    {
-        pos.z += 300f;
-        GameObject fl = Instantiate(floor, pos, Quaternion.identity);
-        fl.transform.SetParent(floors.transform);
     }
 
     // 判断使用哪个速度

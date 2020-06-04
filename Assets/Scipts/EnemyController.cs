@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 严重感染者控制脚本
 public class EnemyController : MonoBehaviour
 {
     public GameObject virus;
@@ -9,10 +10,13 @@ public class EnemyController : MonoBehaviour
     public GameObject normalPeople;
     public GameManager gameManager;
 
+    // 控制感染者产生病毒的速度
     private float fireRate = 3f;
     private float nextFire;
 
     private float speed = 2.5f;
+
+    // 治愈相关
     private int health;
     private int cure = 1;
     private int healPoint = 3;
@@ -33,11 +37,13 @@ public class EnemyController : MonoBehaviour
     	LeftAndRight();
     }
 
+    // 产生病毒
     private void Fire()
     {
     	Instantiate(virus, firePos.transform.position, Quaternion.identity);
     }
 
+    // 控制感染者左右移动
     private void LeftAndRight()
     {
     	if(transform.position.x <= -2.5)
@@ -51,9 +57,10 @@ public class EnemyController : MonoBehaviour
     	transform.Translate(speed*Time.deltaTime, 0, 0);
     }
 
-    // 该类感染者被治愈函数
+    // 治疗该类感染者的方法
     public void CureOnce()
     {
+        // 每次治愈health增加cure，等到health增加到healPoint阈值时，该感染者就会被治愈
     	health += cure;
     	if(health >= healPoint)
     	{

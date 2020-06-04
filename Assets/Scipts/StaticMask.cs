@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 静止的口罩绑定脚本
 public class StaticMask : MonoBehaviour
 {
-    // public GameManager gameManager;
     public GameObject player;
 
     private void Awake()
     {
     	player = GameObject.FindWithTag("Player");
-    	// gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
-    // void OnCollisionEnter(Collision other)
+    // 当玩家获取到该口罩时，就增加玩家拥有的口罩数量
     private void OnTriggerEnter(Collider other)
     {
     	if(other.gameObject.tag == "Player")
@@ -24,6 +23,7 @@ public class StaticMask : MonoBehaviour
     	}
     }
 
+    // 销毁时绑定该函数
     private void OnDestroy()
     {
         if(player != null)

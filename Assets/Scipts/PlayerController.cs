@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     	}
     }
 
+    // 玩家产生口罩
     private void FireMask()
     {
     	if(Input.GetButton("Fire1") && Time.time > nextFire && numOfMask > 0)
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
     	}
     }
 
+    // 以下两个函数用于控制玩家的左右移动
     private void OnMouseDown()
     {
         touchPos = Input.mousePosition;
@@ -70,21 +72,16 @@ public class PlayerController : MonoBehaviour
                 {
                     // 向左
                 	StartCoroutine(LerpOfPlayer(pos, -1));
-                    
-
-                    // pos.x = Mathf.Clamp(transform.position.x - 2.5f, -2.5f, 2.5f);
                 }
                 else if(dir.x > 0)
                 {
                     // 向右
                     StartCoroutine(LerpOfPlayer(pos, 1));
-                    // pos.x = Mathf.Clamp(transform.position.x + 2.5f, -2.5f, 2.5f);
                 }
-
-                // transform.position = pos;
             }
     }
 
+    // 此方法用于控制玩家顺滑移动
     private IEnumerator LerpOfPlayer(Vector3 startPos, int flag)
     {
     	Vector3 endPos = new Vector3(
@@ -102,10 +99,10 @@ public class PlayerController : MonoBehaviour
         transform.position = endPos;
     }
 
+    // 玩家获取口罩的方法
     public void AddMask()
     {
         numOfMask += 10;
-        // numOfStaticMask--;
         maskText.text = numOfMask.ToString();
     }
 }

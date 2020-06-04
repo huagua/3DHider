@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// menu场景中的控制脚本
 public class MenuController : MonoBehaviour
 {
 	public Text maxScoreText;
@@ -11,11 +12,12 @@ public class MenuController : MonoBehaviour
 
 	private void Awake()
 	{
+		// 获取到历史最高分
 		maxScore = PlayerPrefs.GetInt("maxScore");
-		// maxScoreText.text = maxScore.ToString();
 		maxScoreText.text = "历史最高分：" + maxScore;
 	}
 
+	// button触发函数
     public void OnStartGame()
     {
     	SceneManager.LoadScene(1);
